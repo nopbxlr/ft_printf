@@ -6,7 +6,7 @@
 /*   By: ctherin <ctherin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 16:31:56 by ctherin           #+#    #+#             */
-/*   Updated: 2022/06/20 16:55:39 by ctherin          ###   ########.fr       */
+/*   Updated: 2022/06/20 18:14:06 by ctherin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,21 @@
 int	ft_handle_conversion(va_list ap, char f)
 {
 	if (f == '%')
-		printf("percent\n");
+		return (ft_print_percent());
 	if (f == 'd' || f == 'i')
-		printf("num\n");
+		return (ft_print_d_i(va_arg(ap, int)));
 	if (f == 's')
-		printf("string\n");
+		return (ft_print_str(va_arg(ap, char *)));
 	if (f == 'p')
-		printf("pointer\n");
+		return (ft_print_ptr(va_arg(ap, void *)));
 	if (f == 'u')
-		printf("unsigned\n");
+		return (ft_print_u(va_arg(ap, unsigned int)));
 	if (f == 'c')
-		printf("char\n");
+		return (ft_print_char(va_arg(ap, int)));
 	if (f == 'x')
-		printf("hex (lower)\n");
+		return (ft_print_lowercase_hex(va_arg(ap, unsigned int)));
 	if (f == 'X')
-		printf("hex (upper)\n");
+		return (ft_print_uppercase_hex(va_arg(ap, unsigned int)));
 	return (0);
 }
 
@@ -46,15 +46,22 @@ int	ft_printf(const char *s, ...)
 	{
 		if (s[i] == '%')
 			total += ft_handle_conversion(ap, s[++i]);
+		else
+		{
+			write(1, &s[i], 1);
+			++total;
+		}
 		++i;
 	}
 	va_end(ap);
-	return (0);
+	return (total);
 }
 
-#include<stdio.h>
+/*#include<stdio.h>
 int	main(int ac, char **av)
 {
-	ft_printf(av[1]);
+	int a = ft_printf("%x\n", -255);
+	int b = printf("%x", -255);
+	printf("\n\n%d, %d", a, b);
 	return (0);
-}
+}*/
