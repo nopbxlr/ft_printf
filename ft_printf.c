@@ -6,7 +6,7 @@
 /*   By: ctherin <ctherin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 16:31:56 by ctherin           #+#    #+#             */
-/*   Updated: 2022/06/20 18:59:54 by ctherin          ###   ########.fr       */
+/*   Updated: 2022/06/20 19:04:40 by ctherin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,3 @@ int	ft_printf(const char *s, ...)
 	va_end(ap);
 	return (total);
 }
-
-/*#include<stdio.h>
-int	main(int ac, char **av)
-{
-	int a = ft_printf("%p - %p\n", ULONG_MAX, -ULONG_MAX);
-	int b = printf("%p - %p", ULONG_MAX, -ULONG_MAX);
-	return (0);
-}*/
