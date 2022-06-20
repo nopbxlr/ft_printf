@@ -6,7 +6,7 @@
 /*   By: ctherin <ctherin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:23:03 by ctherin           #+#    #+#             */
-/*   Updated: 2022/06/20 17:54:01 by ctherin          ###   ########.fr       */
+/*   Updated: 2022/06/20 19:00:24 by ctherin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,21 @@ static int	get_base_length(char *base)
 		i++;
 	}
 	return (length);
+}
+
+static int	get_u_nb_len(unsigned long long int n, unsigned int base_length)
+{
+	int		len;
+
+	len = 0;
+	if (n == 0)
+		return (1);
+	while (n > 0)
+	{
+		len++;
+		n /= base_length;
+	}
+	return (len);
 }
 
 static int	get_nb_len(long long int n, unsigned int base_length)
@@ -81,6 +96,30 @@ char	*ft_itoa_base(long long int n, char *base)
 		n = -n;
 		ptr[0] = '-';
 	}
+	if (n == 0)
+		ptr[0] = '0';
+	while (n > 0)
+	{
+		ptr[nb_len - 1] = base[(n % base_length)];
+		n /= base_length;
+		nb_len--;
+	}
+	return (ptr);
+}
+
+char	*ft_unsigned_itoa_base(unsigned long long int n, char *base)
+{
+	char			*ptr;
+	int				nb_len;
+	unsigned int	base_length;
+
+	base_length = get_base_length(base);
+	if (!base_length)
+		return (NULL);
+	nb_len = get_u_nb_len(n, base_length);
+	ptr = ft_calloc(nb_len + 1, sizeof(char));
+	if (!ptr)
+		return (NULL);
 	if (n == 0)
 		ptr[0] = '0';
 	while (n > 0)

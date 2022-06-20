@@ -6,7 +6,7 @@
 /*   By: ctherin <ctherin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:17:42 by ctherin           #+#    #+#             */
-/*   Updated: 2022/06/20 18:01:09 by ctherin          ###   ########.fr       */
+/*   Updated: 2022/06/20 19:03:13 by ctherin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,14 @@ int	ft_print_char(char c)
 	return (1);
 }
 
-int	ft_print_ptr(void *ptr)
+int	ft_print_ptr(void *p)
 {
 	char	*str;
 	size_t	len;
 
-	if (!ptr)
+	if (!p)
 		return (ft_print_str("(nil)"));
-	str = ft_itoa_base((long long int)ptr, "0123456789abcdef");
+	str = ft_unsigned_itoa_base((unsigned long long int)p, "0123456789abcdef");
 	if (!str)
 		return (0);
 	len = ft_strlen(str);

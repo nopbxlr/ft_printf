@@ -6,7 +6,7 @@
 /*   By: ctherin <ctherin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 16:31:20 by ctherin           #+#    #+#             */
-/*   Updated: 2022/06/20 18:13:56 by ctherin          ###   ########.fr       */
+/*   Updated: 2022/06/20 18:58:34 by ctherin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,13 @@ int		ft_print_uppercase_hex(unsigned int n);
 	ft_itoa_base.c
 */
 char	*ft_itoa_base(long long int n, char *base);
+char	*ft_unsigned_itoa_base(unsigned long long int n, char *base);
 
 /*
 	ft_mem_utils.c
 */
 void	*ft_calloc(size_t nmemb, size_t size);
 size_t	ft_strlen(const char *s);
+char	*ft_strdup(const char *s);
 
 #endif

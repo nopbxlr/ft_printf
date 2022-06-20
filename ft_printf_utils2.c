@@ -6,7 +6,7 @@
 /*   By: ctherin <ctherin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 18:03:00 by ctherin           #+#    #+#             */
-/*   Updated: 2022/06/20 18:12:02 by ctherin          ###   ########.fr       */
+/*   Updated: 2022/06/20 18:57:25 by ctherin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_print_u(unsigned int n)
 	char	*str;
 	size_t	len;
 
-	str = ft_itoa_base(n, "0123456789");
+	str = ft_unsigned_itoa_base(n, "0123456789");
 	if (!str)
 		return (0);
 	len = ft_strlen(str);

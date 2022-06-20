@@ -6,7 +6,7 @@
 /*   By: ctherin <ctherin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:23:57 by ctherin           #+#    #+#             */
-/*   Updated: 2022/06/20 17:26:58 by ctherin          ###   ########.fr       */
+/*   Updated: 2022/06/20 18:46:29 by ctherin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,25 @@ size_t	ft_strlen(const char *s)
 	while (s[i])
 		i++;
 	return (i);
+}
+
+char	*ft_strdup(const char *s)
+{
+	size_t		sz;
+	size_t		i;
+	char		*dest;
+
+	sz = 0;
+	i = 0;
+	while (s[sz])
+		sz++;
+	dest = ft_calloc(sz + 1, sizeof(char));
+	if (!dest)
+		return (NULL);
+	while (i < sz)
+	{
+		dest[i] = s[i];
+		i++;
+	}
+	return (dest);
 }
