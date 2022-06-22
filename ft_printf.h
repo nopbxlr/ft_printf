@@ -6,7 +6,7 @@
 /*   By: ctherin <ctherin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 16:31:20 by ctherin           #+#    #+#             */
-/*   Updated: 2022/06/20 18:58:34 by ctherin          ###   ########.fr       */
+/*   Updated: 2022/06/22 18:08:27 by ctherin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 /*
 	ft_printf.c
 */
-int		ft_handle_conversion(va_list ap, char f);
 int		ft_printf(const char *s, ...);
 
 /*
