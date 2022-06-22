@@ -6,7 +6,7 @@
 /*   By: ctherin <ctherin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 16:31:56 by ctherin           #+#    #+#             */
-/*   Updated: 2022/06/22 18:08:19 by ctherin          ###   ########.fr       */
+/*   Updated: 2022/06/22 19:17:49 by ctherin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static int	ft_handle_conversion(va_list ap, char f)
 	return (0);
 }
 
-static int	ft_print_from_to(const char *s, int from, int to)
+static int	ft_print_ofs(const char *s, int from, int to)
 {
 	int	total;
 
@@ -59,13 +59,14 @@ int	ft_printf(const char *s, ...)
 	{
 		if (s[i] == '%')
 		{
-			total += ft_print_from_to(s, ofs, i);
+			total += ft_print_ofs(s, ofs, i);
 			total += ft_handle_conversion(ap, s[++i]);
 			ofs = i + 1;
 		}
-		++i;
+		if (s[i])
+			++i;
 	}
-	total += ft_print_from_to(s, ofs, i);
+	total += ft_print_ofs(s, ofs, i);
 	va_end(ap);
 	return (total);
 }
